@@ -1,6 +1,8 @@
 class Solution(object):
     def combinationSum(self, candidates, target):
         """
+        求candidates列表中和为target的组合（同一个数可以多次使用）
+
         :type candidates: List[int]
         :type target: int
         :rtype: List[List[int]]
