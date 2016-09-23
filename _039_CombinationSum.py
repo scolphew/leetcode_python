@@ -9,17 +9,20 @@ class Solution(object):
         if candidates is []:
             return []
 
-        def combination(start=0, sum_num=0, path=[]):
-            if sum_num == target:
+        def combination(start=0, sum_per=0, path=[]):
+            if sum_per == target:
                 result.append(path)
                 return
             for i in range(start, len(candidates)):
-                s = sum_num + candidates[i]
-                if s <= target:
-                    combination(i, s, path + [candidates[i]])
+                sum_current = sum_per + candidates[i]
+                if sum_current <= target:
+                    combination(i, sum_current, path + [candidates[i]])
 
         combination()
         return result
 
+
 s = Solution()
 print(s.combinationSum([1, 2, 3, 4, 5], 7))
+
+
