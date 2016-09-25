@@ -19,26 +19,31 @@ class Solution(object):
 
         return result
 
+    def permute2(self, nums):
+        result = []
+        if not nums:
+            return [[]]
+
+        def perm(start, end):
+            if start == end:
+                lst = list(nums)
+                result.append(lst)
+            else:
+                perm(start + 1, end)
+                for i in range(start + 1, end + 1):
+                    nums[i], nums[start] = nums[start], nums[i]
+                    perm(start + 1, end)
+                    nums[i], nums[start] = nums[start], nums[i]
+
+        perm(0, len(nums) - 1)
+        return result
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.permute([1, 2, 3]))
+    a = s.permute([1, 2, 3, 4, 5])
+    b = s.permute2([1, 2, 3, 4, 5])
 
-    a = [
-        [1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4], [1, 3, 4, 2], [1, 4, 2, 3],
-        [1, 4, 3, 2], [2, 1, 3, 4], [2, 1, 4, 3], [2, 3, 1, 4], [2, 3, 4, 1],
-        [2, 4, 1, 3], [2, 4, 3, 1], [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4],
-        [3, 2, 4, 1], [3, 4, 1, 2], [3, 4, 2, 1], [4, 1, 2, 3], [4, 1, 3, 2],
-        [4, 2, 1, 3], [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]
+    from equal import equal_list_list
 
-    b = [
-        [1, 2, 3, 4], [2, 1, 3, 4], [2, 3, 1, 4], [2, 3, 4, 1], [1, 3, 2, 4],
-        [3, 1, 2, 4], [3, 2, 1, 4], [3, 2, 4, 1], [1, 3, 4, 2], [3, 1, 4, 2],
-        [3, 4, 1, 2], [3, 4, 2, 1], [1, 2, 4, 3], [2, 1, 4, 3], [2, 4, 1, 3],
-        [2, 4, 3, 1], [1, 4, 2, 3], [4, 1, 2, 3], [4, 2, 1, 3], [4, 2, 3, 1],
-        [1, 4, 3, 2], [4, 1, 3, 2], [4, 3, 1, 2], [4, 3, 2, 1]]
-
-    a = list(map(frozenset, a))
-    b = list(map(frozenset, b))
-    print(a==b)
-
+    print(equal_list_list(a, b))
