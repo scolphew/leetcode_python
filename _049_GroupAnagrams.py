@@ -17,6 +17,15 @@ class Solution(object):
                 result.append([string])
         return result
 
+    def group2(self, strs):
+        from collections import defaultdict
+        retdict = defaultdict(list)
+        for i in strs:
+            nums = [0] * 26
+            for j in i:
+                nums[ord(j) - 97] += 1
+            retdict[tuple(nums)].append(i)
+        return list(retdict.values())
 
 if __name__ == '__main__':
     s = Solution()
