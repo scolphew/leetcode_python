@@ -41,6 +41,27 @@ class Solution(object):
             i += 1
         return result
 
+    def totalNQueens2(self, n):
+        def dfs(row, path, cols, xySum, xyDif, n):
+            result = 0
+            if row == n:
+                return 1
+            for col in range(n):
+                if col not in cols and (row + col) not in xySum and (
+                            row - col) not in xyDif:
+                    cols.add(col)
+                    xySum.add(row + col)
+                    xyDif.add(row - col)
+                    result += dfs(row + 1, path + [col], cols, xySum, xyDif, n)
+                    cols.remove(col)
+                    xySum.remove(row + col)
+                    xyDif.remove(row - col)
+            return result
+
+        matrix = []
+        res = []
+        return dfs(0, [], set(), set(), set(), n)
+
 
 s = Solution()
 print(s.totalNQueens(4))
