@@ -1,18 +1,11 @@
-class Interval(object):
-    """表示start到stop的数字区间"""
-
-    def __init__(self, s=0, e=0):
-        self.start = s
-        self.end = e
-
-    def __repr__(self):
-        return str(self.start) + "-" + str(self.end)
+from interval import Interval
 
 
 class Solution(object):
     def merge(self, intervals):
         """
         合并连续的区间
+        时间nlogn
         如：[1,3],[2,6],[8,10],[15,18]->[1,6],[8,10],[15,18]
         :type intervals: List[Interval]
         :rtype: List[Interval]
