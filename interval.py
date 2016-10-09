@@ -7,3 +7,9 @@ class Interval(object):
 
     def __repr__(self):
         return str(self.start) + "-" + str(self.end)
+
+def get_intervals(pairs):
+    b = []
+    for x in pairs:
+        b.append(Interval(x[0], x[1]))
+    return b

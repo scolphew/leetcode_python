@@ -1,5 +1,5 @@
 from interval import Interval
-
+from interval import get_intervals
 
 class Solution(object):
     def merge(self, intervals):
@@ -29,7 +29,4 @@ class Solution(object):
 
 s = Solution()
 a = [[1, 3], [2, 6], [8, 10], [5, 7], [15, 18]]
-b = []
-for x in a:
-    b.append(Interval(x[0], x[1]))
-print(s.merge(b))
+print(s.merge(get_intervals(a)))
