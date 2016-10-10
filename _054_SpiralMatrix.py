@@ -86,12 +86,37 @@ class Solution(object):
             delta_key = next_delta_key
         return res
 
+    def spiralOrder3(self, matrix):
+        if not matrix:
+            return []
+        n = len(matrix)
+        m = len(matrix[0])
+        result = []
+        i = count = 0
+        while True:
+            for j in range(i, m - i):
+                result.append(matrix[i][j])
+                count += 1
+            if count == m * n: break
+            for j in range(i + 1, n - i):
+                result.append(matrix[j][m - i - 1])
+                count += 1
+            if count == m * n: break
+            for j in range(i + 1, m - i):
+                result.append(matrix[n - i - 1][m - j - 1])
+                count += 1
+            if count == m * n: break
+            for j in range(i + 1, n - i - 1):
+                result.append(matrix[n - j - 1][i])
+                count += 1
+            if count == m * n: break
+            i += 1
+        return result
+
 
 s = Solution()
-print(s.d2(
-    [
-        [1, 2, 3, 4],
-        [4, 5, 6, 5],
-        [7, 8, 9, 6]
-    ]
-))
+m, n = 7, 2
+elems = iter(range(1, m * n + 1))
+matrix = [[next(elems) for _ in range(m)] for _ in range(n)]
+print(s.spiralOrder4(matrix))
+
