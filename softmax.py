@@ -28,7 +28,6 @@ def inverse_softmax(z):
         for j in range(i + 1, l):
             if z[i] // z[j] == xx // 1:
                 m, n = i, j
-                bz = math.log(z[m] / math.exp(ord('@'))) // 1
                 xxx = []
                 for k in z:
                     diff = math.log(z[m] / k) // 1
