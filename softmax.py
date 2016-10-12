@@ -3,6 +3,7 @@
 """
 import numpy as np
 
+
 def softmax(x):
     """Compute softmax values for each sets of scores in x."""
     e_x = np.exp(x)
@@ -20,6 +21,7 @@ def softmax2(x):
         i += 1
     return [math.exp(i) / sum / len(x) for i in x]
 
+
 def inverse_softmax(z):
     xx = math.exp(ord('@') - ord('.'))
     l = len(z)
@@ -34,10 +36,10 @@ def inverse_softmax(z):
                     xxx.append(chr(int(ord('@') - diff)))
                 print(''.join(xxx))
 
+
 import math
 
 a = "scolphew@qq.com"
 scores = [ord(i) for i in a]
 z = softmax2(scores)
 inverse_softmax(z)
-
