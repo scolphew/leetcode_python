@@ -1,6 +1,7 @@
 class Solution(object):
     def isNumber(self, s):
         """
+        string is int
         :type s: str
         :rtype: bool
         """
