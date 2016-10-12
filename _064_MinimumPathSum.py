@@ -1,6 +1,7 @@
 class Solution(object):
     def minPathSum(self, grid):
         """
+        m，n的最短路径事数量（加权）
         :type grid: List[List[int]]
         :rtype: int
         """
