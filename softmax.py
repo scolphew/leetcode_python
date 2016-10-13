@@ -2,6 +2,7 @@
 把邮箱转换成softmax值，再转回来
 """
 import numpy as np
+import math
 
 
 def softmax(x):
@@ -36,8 +37,6 @@ def inverse_softmax(z):
                     xxx.append(chr(int(ord('@') - diff)))
                 print(''.join(xxx))
 
-
-import math
 
 a = "scolphew@qq.com"
 scores = [ord(i) for i in a]
