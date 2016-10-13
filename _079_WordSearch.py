@@ -39,7 +39,6 @@ class Solution(object):
                         return True
         return False
 
-
 s = Solution()
 print(s.exist([
     "ABCE","SFCS","ADEE"
