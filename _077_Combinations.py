@@ -38,6 +38,24 @@ class Solution(object):
             currrent.append(j)
             j += 1
 
+    def combine2(self, n, k):
+        result = []
+        currrent = []
+        j = 1
+        while True:
+            l = len(currrent)
+            if l == k:
+                result.append(currrent[:])
+                j = currrent.pop() + 1
+                continue
+            if j > n - k + l + 1:
+                if not currrent:
+                    return result
+                j = currrent.pop() + 1
+                continue
+            currrent.append(j)
+            j += 1
+
 
 s = Solution()
-print(s.combine(4, 2))
+print(s.combine2(4, 2))
