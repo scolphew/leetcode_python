@@ -13,3 +13,5 @@ class Solution(object):
                 nums[p] = i
                 p+=1
         return p
+s = Solution()
+s.removeDuplicates([1,2,3,3,3,4,4,4,4,5,5,6])
