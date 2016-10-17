@@ -5,7 +5,8 @@ class ListNode(object):
             self.next = None
             return
         if len(nums) == 0:
-            self = None
+            self.val = None
+            self.next = None
             return
 
         if len(nums) == 1:
@@ -20,10 +21,15 @@ class ListNode(object):
             per.next = x
             per = x
 
+    def __bool__(self):
+        if self.val is None:
+            return False
+        return True
+
     def __str__(self):
         result = []
         per = self
-        while per is not None:
+        while per:
             result.append(per.val)
             per = per.next
         return str(result)
