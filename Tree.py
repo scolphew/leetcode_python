@@ -45,8 +45,10 @@ class TreeNode(object):
             del (queue[0])
 
             if this is not None:
-                queue.append(this.left)
-                queue.append(this.right)
+                if this.left:
+                    queue.append(this.left)
+                if this.right:
+                    queue.append(this.right)
 
         return str(lst)
 
