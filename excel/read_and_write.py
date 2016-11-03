@@ -1,6 +1,7 @@
 import xlrd
 import xlsxwriter
 import sys
+import re
 
 
 def input_file_name():
@@ -17,12 +18,33 @@ def get_file_name():
         return input_file_name()
 
 
-def is_bad_case(key):
+def get_re():
+    result = []
+    with open("bad_key_word.txt", encoding="utf8") as f:
+        for word in f:
+            result.append(re.compile(word.strip(), re.I))
+    with open("bad_key_word2.txt", encoding="utf8") as f:
+        for line in f:
+            words = line.strip().split()
+            result.append([re.compile(words[0], re.I), re.compile("|".join(
+                words[1:]), re.I)])
+    return result
+
+
+def is_bad_case(key, res):
     """
     判断是否是bad case
     :param key:
     :return:
     """
+    for each in res:
+        if isinstance(each, list):
+            if each[0].match(str(key)):
+                if not each[1].match(str(key)):
+                    return True
+        else:
+            if each.match(str(key)):
+                return True
     return False
 
 
@@ -33,11 +55,14 @@ def copy_data():
     workbook = xlsxwriter.Workbook(v2_name)
     sheet = workbook.add_worksheet(sheet_name)
     index = 0
+    res = get_re()
     for i in range(table.nrows):
-        if not is_bad_case(table.cell(i, 0).value):
+        if not is_bad_case(table.cell(i, 0).value, res):
             for j in range(table.ncols):
                 sheet.write(index, j, table.cell(i, j).value)
             index += 1
+        else:
+            print(table.cell(i, 0).value)
     workbook.close()
 
 
