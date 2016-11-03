@@ -1,4 +1,4 @@
-from interval import *
+from base.interval import *
 
 
 class Solution(object):

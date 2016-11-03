@@ -1,4 +1,4 @@
-from Tree import TreeNode
+from base.Tree import TreeNode
 
 
 class Solution(object):

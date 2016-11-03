@@ -1,4 +1,4 @@
-import search
+from base import search
 
 
 class Solution(object):

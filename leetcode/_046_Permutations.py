@@ -44,6 +44,6 @@ if __name__ == '__main__':
     a = s.permute([1, 2, 3, 4, 5])
     b = s.permute2([1, 2, 3, 4, 5])
 
-    from equal import equal_list_list
+    from base.equal import equal_list_list
 
     print(equal_list_list(a, b))

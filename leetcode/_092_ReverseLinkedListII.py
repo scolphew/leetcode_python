@@ -1,4 +1,4 @@
-from LinkedList import ListNode
+from base.LinkedList import ListNode
 
 
 class Solution(object):

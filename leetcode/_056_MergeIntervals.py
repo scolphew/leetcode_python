@@ -1,5 +1,5 @@
-from interval import Interval
-from interval import get_intervals
+from base.interval import Interval
+from base.interval import get_intervals
 
 class Solution(object):
     def merge(self, intervals):
