@@ -1,7 +1,7 @@
 class TreeNode(object):
     """二叉树"""
 
-    def __init__(self, x):
+    def __init__(self, x=[]):
         self.left = None
         self.right = None
         if not x:
@@ -31,9 +31,7 @@ class TreeNode(object):
         return str(ans)
 
     def __bool__(self):
-        if self.val:
-            return True
-        return False
+        return bool(self.val)
 
 
 if __name__ == '__main__':

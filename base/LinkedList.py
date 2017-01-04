@@ -1,10 +1,10 @@
 class ListNode(object):
-    def __init__(self, nums):
+    def __init__(self, nums=[]):
         if type(nums) is int:
             self.val = nums
             self.next = None
             return
-        if len(nums) == 0:
+        if not nums:
             self.val = None
             self.next = None
             return
@@ -22,13 +22,10 @@ class ListNode(object):
             per = x
 
     def __bool__(self):
-        if self.val is None:
-            return False
-        return True
+        return bool(self.val)
 
     def __str__(self):
-        result = []
-        per = self
+        result, per = [], self
         while per:
             result.append(per.val)
             per = per.next
@@ -36,4 +33,4 @@ class ListNode(object):
 
 
 if __name__ == '__main__':
-    print(ListNode([1, 2, 3]))
+    print(ListNode([1]))
