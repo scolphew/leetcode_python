@@ -1,56 +1,39 @@
 class TreeNode(object):
+    """二叉树"""
+
     def __init__(self, x):
         self.left = None
         self.right = None
-        if type(x) is int:
+        if not x:
+            self.val = None
+        elif type(x) is int:
             self.val = x
-            return
-        if type(x) is list:
-            self.val = x[0]
-            queue = []
-            queue.append(self)
-            del (x[0])
+        elif type(x) is list:
+            self.__init_with_list(x)
 
-            while len(x) > 0:
-                this = queue[0]
-                del (queue[0])
-                if this is None:
-                    continue
-                left = x[0]
-                del (x[0])
-                if left is None:
-                    this.left = None
-                else:
-                    this.left = TreeNode(left)
-                queue.append(this.left)
-                if len(x) > 0:
-                    right = x[0]
-                    del (x[0])
+    def __init_with_list(self, x):
+        """当输入的数据为列表时的操作"""
+        from collections import deque
+        node_stream = deque((self,))
+        for i in x:
+            node = node_stream.popleft()
+            node.val = i
+            if not node:
+                continue
+            node.left, node.right = TreeNode(None), TreeNode(None)
+            node_stream.extend((node.left, node.right))
 
-                    if right is None:
-                        this.right = None
-                    else:
-                        this.right = TreeNode(right)
-                    queue.append(this.right)
-        return None
+    def __repr__(self):
+        ans, level = [], [self]
+        while root and level:
+            ans.extend([node.val for node in level])
+            level = [kid for n in level for kid in (n.left, n.right) if kid]
+        return str(ans)
 
-    def __str__(self):
-        queue = []
-        lst = []
-        queue.append(self)
-
-        while len(queue) > 0:
-            this = queue[0]
-            lst.append(this.val if this is not None else None)
-            del (queue[0])
-
-            if this is not None:
-                if this.left:
-                    queue.append(this.left)
-                if this.right:
-                    queue.append(this.right)
-
-        return str(lst)
+    def __bool__(self):
+        if self.val:
+            return True
+        return False
 
 
 if __name__ == '__main__':

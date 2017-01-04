@@ -39,8 +39,6 @@ class Solution(object):
 
     def soluion3(self, root):
         ans, level = [], [root]
-        # print(root)
-        print(type(root))
         while root and level:
             ans.append([node.val for node in level])
             level = [kid for n in level for kid in (n.left, n.right) if kid]
@@ -49,7 +47,7 @@ class Solution(object):
 
 if __name__ == '__main__':
     null = None
-    # root = TreeNode([3, 9, 20, null, null, 15, 7])
-    root = TreeNode([])
+    root = TreeNode([3, 9, 20, null, null, 15, 7])
+    # root = TreeNode([])
     s = Solution()
     print(s.soluion3(root))
