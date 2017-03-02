@@ -20,6 +20,25 @@ def quick_sort(nums):
     q_sort(0, len(nums) - 1)
 
 
+def quick_sort2(nums):
+    def q_sort(l, r):
+        if l >= r:
+            return
+        tmp = nums[l]
+        i = l
+        for j in range(l + 1, r + 1):
+            if a[j] <= tmp:
+                i += 1
+                a[i], a[j] = a[j], a[i]
+        else:
+            a[l], a[i] = a[i], a[l]
+
+        q_sort(l, i - 1)
+        q_sort(i + 1, r)
+
+    q_sort(0, len(nums) - 1)
+
+
 def merge_sort(nums):
     """归并排序"""
 
@@ -122,7 +141,7 @@ def select_sort(nums):
 
     def select_min(i):
         min_key = i
-        for key,value in enumerate(nums[i+1:], i+1):
+        for key, value in enumerate(nums[i + 1:], i + 1):
             if value < nums[min_key]:
                 min_key = key
         return min_key
@@ -137,5 +156,7 @@ a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4]
 # a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4, 13, 15, 17, 14, 12, 10, 11, 16, 18]
 # b = sorted(a)
 # print(b)
-select_sort(a)
+# select_sort(a)
+print(a)
+quick_sort2(a)
 print(a)
