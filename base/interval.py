@@ -8,6 +8,7 @@ class Interval(object):
     def __repr__(self):
         return str(self.start) + "-" + str(self.end)
 
+
 def get_intervals(pairs):
     b = []
     for x in pairs:
