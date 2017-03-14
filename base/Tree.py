@@ -25,9 +25,11 @@ class TreeNode(object):
 
     def __repr__(self):
         ans, level = [], [self]
-        while root and level:
-            ans.extend([node.val for node in level])
-            level = [kid for n in level for kid in (n.left, n.right) if kid]
+        while level:
+            ans.extend([node.val if node else None for node in level])
+            level = [kid for n in level if n for kid in (n.left, n.right)]
+        while not ans[-1]:
+            ans.pop()
         return str(ans)
 
     def __bool__(self):
