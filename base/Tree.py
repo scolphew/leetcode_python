@@ -23,10 +23,13 @@ class TreeNode(object):
             node.left, node.right = TreeNode(None), TreeNode(None)
             node_stream.extend((node.left, node.right))
 
+    def get_val(self):
+        return self.val
+
     def __repr__(self):
         ans, level = [], [self]
         while level:
-            ans.extend([node.val if node else None for node in level])
+            ans.extend([node.get_val() if node else None for node in level])
             level = [kid for n in level if n for kid in (n.left, n.right)]
         while not ans[-1]:
             ans.pop()
