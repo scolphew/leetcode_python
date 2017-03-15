@@ -7,30 +7,24 @@ class Solution(object):
         """
         if not numerator % denominator:
             return str(numerator // denominator)
-        sign = "" if numerator * denominator > 0 else "-"
-        l = []
         s = {}
+
+        res = "" if numerator * denominator > 0 else "-"
         numerator, denominator = abs(numerator), abs(denominator)
         a, numerator = divmod(numerator, denominator)
-        integer = str(a)
-        index = 0
-        while True:
+        res += str(a) + "."
+        index = len(res)
+        while numerator:
+            if numerator in s:
+                start_cycle = s[numerator]
+                res = "{}({})".format(res[:start_cycle], res[start_cycle:])
+                return res
+
+            s[numerator] = index
             a, numerator = divmod(numerator * 10, denominator)
-
-            if (a, numerator) in s:
-                start_cycle = s[(a, numerator)]
-                break
-
-            l.append(str(a))
-            s[(a, numerator)] = index
+            res += str(a)
             index += 1
-
-        a, b = l[:start_cycle], l[start_cycle:]
-        a = "".join(a)
-        b = "".join(b)
-        b = "" if b == "0" else "({})".format(b)
-
-        return "{}{}.{}{}".format(sign, integer, a, "" if b == "0" else b)
+        return res
 
 
 if __name__ == '__main__':
