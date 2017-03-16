@@ -22,7 +22,7 @@ class ListNode(object):
             per = x
 
     def __bool__(self):
-        return bool(self.val)
+        return self.val is not None
 
     def __str__(self):
         result, per = [], self
