@@ -1,4 +1,8 @@
+from base.base import run_time
+
+
 class Solution(object):
+    @run_time
     def countRangeSum(self, nums, lower, upper):
         """
         :type nums: List[int]
@@ -44,7 +48,37 @@ class Solution(object):
 
         return merge()
 
+    @run_time
+    def f2(self, nums, lower, upper):
+        first = [0]
+        for num in nums:
+            first.append(first[-1] + num)
+
+        def merge(lo=0, hi=len(first)):
+            mid = (lo + hi) >> 1
+            if mid == lo:
+                return 0
+            count = merge(lo, mid) + merge(mid, hi)
+            i = j = mid
+            for left in first[lo:mid]:
+                while i < hi and first[i] - left < lower:
+                    i += 1
+                while j < hi and first[j] - left <= upper:
+                    j += 1
+                count += j - i
+            first[lo:hi] = sorted(first[lo:hi])
+            return count
+
+        return merge()
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.countRangeSum([-2, 5, -1], -2, 2))
+    nums = []
+    for i in range(10000):
+        lst = [i for i in range(-100, 100)]
+        nums.extend(lst)
+    print(len(nums))
+    a = (nums, -20, 20)
+    print(s.f2(*a))
+    print(s.countRangeSum(*a))
