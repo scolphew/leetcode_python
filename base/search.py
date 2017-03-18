@@ -100,5 +100,40 @@ def search_last(nums, target, left=None, right=None):
     return -1
 
 
+def lower_bound(nums, key, first=0, length=None):
+    """
+    返回nums中大于等于key的最小下标，
+    或者说，
+    向nums中插入key时，应该插入到什么位置"""
+    if length is None:
+        length = len(nums) - 1
+    while length > 0:
+        half = length >> 1
+        mid = first + half
+        if nums[mid] < key:
+            first = mid + 1
+            length -= half + 1
+        else:
+            length = half
+    return first
+
+
+def upper_bound(nums, key, first=0, length=None):
+    """
+    返回nums中第一个大于key的位置
+    """
+    if length is None:
+        length = len(nums) - 2
+    while length > 0:
+        half = length >> 1
+        mid = first + length
+        if nums[mid] > key:
+            length = half
+        else:
+            first = mid + 1
+            length -= half + 1
+    return first
+
+
 if __name__ == '__main__':
     print(search_lt([1, 2, 2, 2, 2, 2, 2, 2, 3], 2))
