@@ -40,7 +40,7 @@ class TreeNode(object):
         return str(ans)
 
     def __bool__(self):
-        return bool(self.val)
+        return self.val is not None
 
 
 BLACK = "BLACK"
