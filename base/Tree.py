@@ -5,27 +5,39 @@ from operator import add, mul
 class TreeNode(object):
     """二叉树"""
 
-    def __init__(self, x=[]):
+    def __new__(cls, x=None, *args, **kwargs):
+        if x is None:
+            return None
+        if hasattr(x, "__iter__") and len(x) == 0:
+            return None
+        return super().__new__(cls, *args, **kwargs)
+
+    def __init__(self, x=None):
         self.left = None
         self.right = None
-        if not x:
-            self.val = None
-        elif type(x) is int:
+        if hasattr(x, "__iter__"):
+            self.__init_with_iter(x)
+        else:
             self.val = x
-        elif type(x) is list:
-            self.__init_with_list(x)
 
-    def __init_with_list(self, x):
+    def __init_with_iter(self, x):
         """当输入的数据为列表时的操作"""
         from collections import deque
+        self.val = x[0]
         node_stream = deque((self,))
-        for i in x:
+        index, lengrh = 1, len(x)
+        while index + 1 < lengrh:
             node = node_stream.popleft()
-            node.val = i
-            if not node:
-                continue
-            node.left, node.right = TreeNode(None), TreeNode(None)
-            node_stream.extend((node.left, node.right))
+            while not node:
+                node = node_stream.popleft()
+            node.left = TreeNode(x[index])
+            node.right = TreeNode(x[index + 1])
+            node_stream.append(node.left)
+            node_stream.append(node.right)
+            index += 2
+        else:
+            if index < lengrh:
+                node.left = TreeNode(x[index])
 
     def get_val(self):
         return self.val
@@ -38,9 +50,6 @@ class TreeNode(object):
         while not ans[-1]:
             ans.pop()
         return str(ans)
-
-    def __bool__(self):
-        return self.val is not None
 
 
 BLACK = "BLACK"

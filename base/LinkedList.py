@@ -1,28 +1,25 @@
 class ListNode(object):
-    def __init__(self, nums=[]):
-        if type(nums) is int:
-            self.val = nums
-            self.next = None
-            return
-        if not nums:
-            self.val = None
-            self.next = None
-            return
+    def __new__(cls, x=None, *args, **kwargs):
+        if x is None:
+            return None
+        if hasattr(x, "__iter__") and len(x) == 0:
+            return None
+        return super().__new__(cls, *args, **kwargs)
 
-        if len(nums) == 1:
-            self.val = nums[0]
+    def __init__(self, x=None, *args):
+        if hasattr(x, "__iter__"):
+            self.__init_with_iter(x)
+        else:
+            self.val = x
             self.next = None
-            return
 
-        self.val = nums[0]
-        per = self
-        for i in nums[1:]:
-            x = ListNode(i)
-            per.next = x
-            per = x
-
-    def __bool__(self):
-        return self.val is not None
+    def __init_with_iter(self, x):
+        self.val = x[0]
+        self.next = None
+        tmp = self
+        for i in x[1:]:
+            tmp.next = ListNode(i)
+            tmp = tmp.next
 
     def __str__(self):
         result, per = [], self
