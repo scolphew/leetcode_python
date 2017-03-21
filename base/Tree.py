@@ -47,7 +47,7 @@ class TreeNode(object):
         while level:
             ans.extend([node.get_val() if node else None for node in level])
             level = [kid for n in level if n for kid in (n.left, n.right)]
-        while not ans[-1]:
+        while ans[-1] is None:
             ans.pop()
         return str(ans)
 
