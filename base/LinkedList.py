@@ -22,11 +22,12 @@ class ListNode(object):
             tmp = tmp.next
 
     def __str__(self):
-        result, per = [], self
-        while per:
-            result.append(per.val)
-            per = per.next
-        return str(result)
+        return str(self.val) + "," + str(self.next)
+        # result, per = [], self
+        # while per:
+        #     result.append(per.val)
+        #     per = per.next
+        # return str(result)
 
 
 if __name__ == '__main__':
