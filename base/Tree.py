@@ -37,6 +37,7 @@ class TreeNode(object):
             index += 2
         else:
             if index < lengrh:
+                node = node_stream.popleft()
                 node.left = TreeNode(x[index])
 
     def get_val(self):
