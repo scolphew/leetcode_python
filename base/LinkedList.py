@@ -13,6 +13,17 @@ class ListNode(object):
             self.val = x
             self.next = None
 
+    def __bool__(self):
+        return self is not None
+
+    def __len__(self):
+        p = self.next
+        res = 1
+        while p is not None:
+            res += 1
+            p = p.next
+        return res
+
     def __init_with_iter(self, x):
         self.val = x[0]
         self.next = None
