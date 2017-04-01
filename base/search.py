@@ -106,7 +106,7 @@ def lower_bound(nums, key, first=0, length=None):
     或者说，
     向nums中插入key时，应该插入到什么位置"""
     if length is None:
-        length = len(nums) - 1
+        length = len(nums)
     while length > 0:
         half = length >> 1
         mid = first + half
@@ -123,10 +123,10 @@ def upper_bound(nums, key, first=0, length=None):
     返回nums中第一个大于key的位置
     """
     if length is None:
-        length = len(nums) - 2
+        length = len(nums)
     while length > 0:
         half = length >> 1
-        mid = first + length
+        mid = first + half
         if nums[mid] > key:
             length = half
         else:
