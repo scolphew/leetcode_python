@@ -24,16 +24,15 @@ class Solution(object):
             p = stack.pop()
             if pro_val and p.val == pro_val.val:
                 cur_count += 1
-                if cur_count == max_count:
-                    ans.append(p.val)
-                elif cur_count > max_count:
-                    ans = [p.val]
-                    max_count = cur_count
             else:
                 cur_count = 1
                 pro_val = p
-                if cur_count > max_count:
-                    ans.append(p.val)
+
+            if cur_count == max_count:
+                ans.append(p.val)
+            elif cur_count > max_count:
+                ans = [p.val]
+                max_count = cur_count
             p = p.right
         return ans
 
