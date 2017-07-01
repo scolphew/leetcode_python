@@ -32,8 +32,10 @@ class TreeNode(object):
                 node = node_stream.popleft()
             node.left = TreeNode(x[index])
             node.right = TreeNode(x[index + 1])
-            node_stream.append(node.left)
-            node_stream.append(node.right)
+            if node.left:
+                node_stream.append(node.left)
+            if node.right:
+                node_stream.append(node.right)
             index += 2
         else:
             if index < lengrh:
