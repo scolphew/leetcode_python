@@ -152,11 +152,12 @@ def select_sort(nums):
             nums[i], nums[key] = nums[key], nums[i]
 
 
-a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4]
-# a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4, 13, 15, 17, 14, 12, 10, 11, 16, 18]
-# b = sorted(a)
-# print(b)
-# select_sort(a)
-print(a)
-quick_sort2(a)
-print(a)
+if __name__ == '__main__':
+    a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4]
+    # a = [2, 7, 8, 3, 1, 6, 9, 0, 5, 4, 13, 15, 17, 14, 12, 10, 11, 16, 18]
+    # b = sorted(a)
+    # print(b)
+    # select_sort(a)
+    print(a)
+    quick_sort2(a)
+    print(a)
