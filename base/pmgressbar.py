@@ -56,10 +56,9 @@ class ProgressBar(Iterable):
 
 
 if __name__ == '__main__':
-    s = ""
-    with open('sort.py') as f:
-        for i in ProgressBar(f):
-            s += i
-            import time
-            time.sleep(0.01)
+    s = 0
+    for i in ProgressBar(range(10000)):
+        s += 1
+        import time
+        time.sleep(0.01)
     print(s)
