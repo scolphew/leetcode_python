@@ -16,9 +16,10 @@ class Solution(object):
         return result[-1]
 
 
-s = Solution()
-a = [
-    [1, 2, 3],
-    [4, 5, 6],
-]
-print(s.minPathSum(a))
+if __name__ == '__main__':
+    s = Solution()
+    a = [
+        [1, 2, 3],
+        [4, 5, 6],
+    ]
+    print(s.minPathSum(a))

@@ -10,6 +10,8 @@
     解法参考上一题，将每一行转换为直方图（每个位置的盖度为向上的1的累积个数），然后每一行求最大面积
     遍历每一行
 """
+
+
 class Solution(object):
     def maximalRectangle(self, matrix):
         """
@@ -32,10 +34,12 @@ class Solution(object):
                     i += 1
                     continue
                 top_idx = stack.pop()
-                area = height[top_idx] * (i if not stack else (i - stack[-1] - 1))
+                area = height[top_idx] * (
+                    i if not stack else (i - stack[-1] - 1))
                 ans = area if area > ans else ans
         return ans
 
 
-s = Solution()
-print(s.maximalRectangle(["10100", "10111", "11111", "10010"]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.maximalRectangle(["10100", "10111", "11111", "10010"]))

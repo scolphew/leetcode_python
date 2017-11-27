@@ -27,6 +27,7 @@ class Solution(object):
             retdict[tuple(nums)].append(i)
         return list(retdict.values())
 
+
 if __name__ == '__main__':
     s = Solution()
     print(s.groupAnagrams(["aab", "abb", "tan", "ate", "nat", "bat"]))

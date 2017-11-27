@@ -43,7 +43,8 @@ class Solution(object):
         return result
 
 
-s = Solution()
-for i in range(9):
-    root = ListNode([1, 2, 3])
-    print(s.rotateRight(root, i))
+if __name__ == '__main__':
+    s = Solution()
+    for i in range(9):
+        root = ListNode([1, 2, 3])
+        print(s.rotateRight(root, i))

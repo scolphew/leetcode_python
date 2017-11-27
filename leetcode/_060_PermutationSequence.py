@@ -19,10 +19,13 @@ class Solution(object):
             k %= factorial[i - 1]
             result += nums.pop(index)
         result += nums[0]
+
         return result
 
-s = Solution()
-for ii in range(1, 6):
-    for j in range(1, math.factorial(ii) + 1):
-        print(ii, "-", j, end="  ")
-        print(s.getPermutation(ii, j))
+
+if __name__ == '__main__':
+    s = Solution()
+    for ii in range(1, 6):
+        for j in range(1, math.factorial(ii) + 1):
+            print(ii, "-", j, end="  ")
+            print(s.getPermutation(ii, j))

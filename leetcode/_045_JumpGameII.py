@@ -32,6 +32,7 @@ class Solution(object):
         return step
 
 
-s = Solution()
-print(s.jump([2, 3, 1, 1, 4]))
-print(s.jump2([2, 3, 1, 1, 4]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.jump([2, 3, 1, 1, 4]))
+    print(s.jump2([2, 3, 1, 1, 4]))

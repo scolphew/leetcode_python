@@ -22,5 +22,6 @@ class Solution(object):
         return max_area
 
 
-s = Solution()
-print(s.largestRectangleArea([2, 1, 5, 6, 2, 3]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.largestRectangleArea([2, 1, 5, 6, 2, 3]))

@@ -38,6 +38,7 @@ class Solution(object):
         return res
 
 
-s = Solution()
-print(s.grayCode(5))
-print(s.d2(5))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.grayCode(5))
+    print(s.d2(5))

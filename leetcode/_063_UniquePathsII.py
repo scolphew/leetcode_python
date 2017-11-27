@@ -17,11 +17,11 @@ class Solution(object):
 
         for i in range(1, m):
             result[0] *= (1 - obstacleGrid[i][0])
-            for j in range(1,n):
+            for j in range(1, n):
                 result[j] = 0 if obstacleGrid[i][j] else result[j] + result[
                     j - 1]
         return result[-1]
 
-
-s = Solution()
-print(s.uniquePathsWithObstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.uniquePathsWithObstacles([[0, 0, 0], [0, 1, 0], [0, 0, 0]]))

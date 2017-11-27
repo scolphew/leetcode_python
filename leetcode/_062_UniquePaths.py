@@ -32,7 +32,7 @@ class Solution(object):
         return reduce(operator.mul, range(n, m + n - 1), 1) / reduce(
             operator.mul, range(1, m), 1)
 
-
-s = Solution()
-print(s.uniquePaths(11, 11))
-print(s.d4(1, 2))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.uniquePaths(11, 11))
+    print(s.d4(1, 2))

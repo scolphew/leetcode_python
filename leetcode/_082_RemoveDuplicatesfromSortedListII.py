@@ -39,7 +39,8 @@ class Solution(object):
         return head
 
 
-s = Solution()
-a = ListNode([1, 1, 1, 1,3])
-a = s.deleteDuplicates(a)
-print(a)
+if __name__ == '__main__':
+    s = Solution()
+    a = ListNode([1, 1, 1, 1, 3])
+    a = s.deleteDuplicates(a)
+    print(a)

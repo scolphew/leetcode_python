@@ -27,5 +27,7 @@ class Solution(object):
         result = ''.join(r)
         return result if result else '0'
 
-s = Solution()
-print(s.multiply("00", "009"))
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.multiply("00", "009"))

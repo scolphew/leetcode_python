@@ -29,6 +29,7 @@ class Solution(object):
         return p.next
 
 
-s = Solution()
-a = ListNode([1, 2, 3, 4, 5])
-print(s.reverseBetween(a, 2, 4))
+if __name__ == '__main__':
+    s = Solution()
+    a = ListNode([1, 2, 3, 4, 5])
+    print(s.reverseBetween(a, 2, 4))

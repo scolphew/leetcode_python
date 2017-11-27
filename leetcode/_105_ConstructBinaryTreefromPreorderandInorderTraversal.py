@@ -34,6 +34,6 @@ if __name__ == '__main__':
     s = Solution()
     p = [1, 2, 4, 5, 3, 6, 7]
     i = [4, 2, 5, 1, 6, 3, 7]
-    p = [1,2]
-    i = [2,1]
+    p = [1, 2]
+    i = [2, 1]
     print(s.buildTree(p, i))

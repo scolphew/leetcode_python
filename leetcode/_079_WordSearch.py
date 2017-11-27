@@ -12,7 +12,7 @@ class Solution(object):
 
         def search(i, j, length=0):
             if not flag[i][j] and board[i][j] == word[length]:
-                if len(word)-1 == length:
+                if len(word) - 1 == length:
                     return True
                 flag[i][j] = True
                 if i > 0 and not flag[i - 1][j] and search(i - 1, j,
@@ -39,7 +39,9 @@ class Solution(object):
                         return True
         return False
 
-s = Solution()
-print(s.exist([
-    "ABCE","SFCS","ADEE"
-], "ABCCED"))
+
+if __name__ == '__main__':
+    s = Solution()
+    print(s.exist([
+        "ABCE", "SFCS", "ADEE"
+    ], "ABCCED"))

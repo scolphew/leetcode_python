@@ -7,6 +7,7 @@ class Solution(object):
         :param m:
         :return:
         """
+
         def valid(mid):
             cnt = 0
             current = 0
@@ -31,9 +32,10 @@ class Solution(object):
         return l
 
 
-s = Solution()
-a = [1,2,3]
+if __name__ == '__main__':
+    s = Solution()
+    a = [1, 2, 3]
 
-m = 15
-# print(len(a), 27407869)
-print(s.splitArray(a, m))
+    m = 15
+    # print(len(a), 27407869)
+    print(s.splitArray(a, m))

@@ -15,8 +15,9 @@ class Solution(object):
                 continue
             if 0 < nums[index] <= len(nums):
                 index_1 = nums[index]
-                while 0 < index_1 <= len(nums) and index_1 != nums[index_1 - 1]:
-                    x = nums[index_1-1]
+                while 0 < index_1 <= len(nums) and index_1 != nums[
+                            index_1 - 1]:
+                    x = nums[index_1 - 1]
                     nums[index_1 - 1] = index_1
                     index_1 = x
             index += 1
@@ -29,12 +30,13 @@ class Solution(object):
         return len(nums) + 1
 
 
-s = Solution()
-print(s.firstMissingPositive([1, 2, 3, 4, 5, 6]))
-print(s.firstMissingPositive([0, 1, 2, 3, 4, 5, 7]))
-print(s.firstMissingPositive([0, -1, 2, 3, 4, 5, 7]))
-print(s.firstMissingPositive([3, 4, -1, 1]))
-print(s.firstMissingPositive([1, 2, 2, 5, 7]))
-print(s.firstMissingPositive([2, 1]))
-print(s.firstMissingPositive([2]))
-print(s.firstMissingPositive([1]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.firstMissingPositive([1, 2, 3, 4, 5, 6]))
+    print(s.firstMissingPositive([0, 1, 2, 3, 4, 5, 7]))
+    print(s.firstMissingPositive([0, -1, 2, 3, 4, 5, 7]))
+    print(s.firstMissingPositive([3, 4, -1, 1]))
+    print(s.firstMissingPositive([1, 2, 2, 5, 7]))
+    print(s.firstMissingPositive([2, 1]))
+    print(s.firstMissingPositive([2]))
+    print(s.firstMissingPositive([1]))

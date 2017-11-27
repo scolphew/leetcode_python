@@ -38,7 +38,8 @@ def inverse_softmax(z):
                 print(''.join(xxx))
 
 
-a = "scolphew@qq.com"
-scores = [ord(i) for i in a]
-z = softmax2(scores)
-inverse_softmax(z)
+if __name__ == '__main__':
+    a = "scolphew@qq.com"
+    scores = [ord(i) for i in a]
+    z = softmax2(scores)
+    inverse_softmax(z)

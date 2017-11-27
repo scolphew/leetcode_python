@@ -38,10 +38,11 @@ class Solution(object):
                 matrix[i][0] = 0
 
 
-s = Solution()
-a = [
-    [1, 2, 3],
-    [4, 0, 6]
-]
-s.setZeroes(a)
-print(a)
+if __name__ == '__main__':
+    s = Solution()
+    a = [
+        [1, 2, 3],
+        [4, 0, 6]
+    ]
+    s.setZeroes(a)
+    print(a)

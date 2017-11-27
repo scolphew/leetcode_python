@@ -36,6 +36,7 @@ class Solution(object):
             return head_2
 
 
-s = Solution()
-a = [5, 4, 3, 2, 1, 3, 3, 3]
-print(s.partition(ListNode(a), 4))
+if __name__ == '__main__':
+    s = Solution()
+    a = [5, 4, 3, 2, 1, 3, 3, 3]
+    print(s.partition(ListNode(a), 4))

@@ -1,6 +1,7 @@
 from base.interval import Interval
 from base.interval import get_intervals
 
+
 class Solution(object):
     def merge(self, intervals):
         """
@@ -27,6 +28,7 @@ class Solution(object):
         return result
 
 
-s = Solution()
-a = [[1, 3], [2, 6], [8, 10], [5, 7], [15, 18]]
-print(s.merge(get_intervals(a)))
+if __name__ == '__main__':
+    s = Solution()
+    a = [[1, 3], [2, 6], [8, 10], [5, 7], [15, 18]]
+    print(s.merge(get_intervals(a)))

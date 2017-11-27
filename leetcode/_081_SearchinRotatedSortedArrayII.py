@@ -15,7 +15,8 @@ class Solution(object):
                     return True
                 # 左半边有序
                 if nums[left] == nums[right] == nums[mid]:
-                    return search(left+1, mid-1) or search(mid+1, right-1)
+                    return search(left + 1, mid - 1) or search(mid + 1,
+                                                               right - 1)
                 if nums[mid] >= nums[left]:
                     # tag在左半边
                     if nums[left] > target or nums[mid] <= target:
@@ -34,5 +35,6 @@ class Solution(object):
         return search()
 
 
-s = Solution()
-print(s.search([1, 3, 1, 1, 1], 3))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.search([1, 3, 1, 1, 1], 3))

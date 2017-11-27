@@ -11,7 +11,10 @@ class Solution(object):
         for i in nums[2:]:
             if i > nums[p - 2]:
                 nums[p] = i
-                p+=1
+                p += 1
         return p
-s = Solution()
-s.removeDuplicates([1,2,3,3,3,4,4,4,4,5,5,6])
+
+
+if __name__ == '__main__':
+    s = Solution()
+    s.removeDuplicates([1, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 6])

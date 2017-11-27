@@ -13,9 +13,9 @@ class Solution(object):
         if not l2:
             return l1
         flag = [[0] * (l2 + 1) for _ in range(l1 + 1)]
-        for i in range(l2+1):
+        for i in range(l2 + 1):
             flag[0][i] = i
-        for i in range(l1+1):
+        for i in range(l1 + 1):
             flag[i][0] = i
         for i in range(1, l1 + 1):
             for j in range(1, l2 + 1):
@@ -28,5 +28,6 @@ class Solution(object):
         return flag[-1][-1]
 
 
-s = Solution()
-print(s.minDistance("sea", "ate"))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.minDistance("sea", "ate"))

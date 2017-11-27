@@ -22,5 +22,6 @@ class Solution(object):
         return res
 
 
-s = Solution()
-print(s.countAndSay(10))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.countAndSay(10))

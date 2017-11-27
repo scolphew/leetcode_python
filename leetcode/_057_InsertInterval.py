@@ -25,11 +25,13 @@ class Solution(object):
         s, e = newInterval.start, newInterval.end
         left = search(s, intervals)
         right = search(e, intervals)
-        if left < len(intervals) and intervals[left].start <= s <= intervals[left].end:
+        if left < len(intervals) and intervals[left].start <= s <= intervals[
+            left].end:
             start = intervals[left].start
         else:
             start = s
-        if right < len(intervals) and intervals[right].start <= e <= intervals[right].end:
+        if right < len(intervals) and intervals[right].start <= e <= intervals[
+            right].end:
             end = intervals[right].end
             right += 1
         else:
@@ -37,10 +39,11 @@ class Solution(object):
         return intervals[:left] + [Interval(start, end)] + intervals[right:]
 
 
-s = Solution()
-a = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
-print(s.insert(get_intervals(a), Interval(4, 9)))
-a = [[1, 5]]
-print(s.insert(get_intervals(a), Interval(2, 3)))
-a = [[1, 5]]
-print(s.insert(get_intervals(a), Interval(0, 0)))
+if __name__ == '__main__':
+    s = Solution()
+    a = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+    print(s.insert(get_intervals(a), Interval(4, 9)))
+    a = [[1, 5]]
+    print(s.insert(get_intervals(a), Interval(2, 3)))
+    a = [[1, 5]]
+    print(s.insert(get_intervals(a), Interval(0, 0)))

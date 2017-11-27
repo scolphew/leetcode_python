@@ -57,5 +57,6 @@ class Solution(object):
             j += 1
 
 
-s = Solution()
-print(s.combine2(4, 2))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.combine2(4, 2))

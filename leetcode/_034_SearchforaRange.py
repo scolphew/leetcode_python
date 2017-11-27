@@ -23,5 +23,6 @@ class Solution(object):
         return [left, right - 1]
 
 
-s = Solution()
-print(s.searchRange([1, 2, 3, 4,  5, 6], 5))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.searchRange([1, 2, 3, 4, 5, 6], 5))

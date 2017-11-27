@@ -1,6 +1,3 @@
-from p import p
-
-
 class Solution(object):
     def solveNQueens(self, n):
         """
@@ -26,7 +23,8 @@ class Solution(object):
             [1, 3, 0, 2] -> [".Q..","...Q","Q...","..Q."]
             """
             for i in range(n):
-                lst[i] = ''.join(['Q' if lst[i] == x else '.' for x in range(n)])
+                lst[i] = ''.join(
+                    ['Q' if lst[i] == x else '.' for x in range(n)])
             return lst
 
         DEFAULT = -1000

@@ -31,5 +31,6 @@ class Solution(object):
         return dp[-1]
 
 
-s = Solution()
-print(s.numDecodings("10"))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.numDecodings("10"))

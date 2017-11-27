@@ -21,5 +21,6 @@ class Solution(object):
             return x * self.myPow(x, n - 1)
 
 
-s = Solution()
-print(s.myPow(8.88023, 3))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.myPow(8.88023, 3))

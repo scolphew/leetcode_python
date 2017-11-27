@@ -32,5 +32,6 @@ class Solution(object):
         return result
 
 
-s = Solution()
-print(s.combinationSum2([1, 1], 1))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.combinationSum2([1, 1], 1))

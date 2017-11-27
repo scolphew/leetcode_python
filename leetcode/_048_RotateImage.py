@@ -21,14 +21,15 @@ class Solution(object):
             end -= 1
 
 
-from p import p
+if __name__ == '__main__':
+    from p import p
 
-s = Solution()
+    s = Solution()
 
-# a = [[1, 2, 3, 4, 5], [5, 6, 7, 8, 9], [9, 10, 11, 12, 13],
-#      [13, 14, 15, 16, 17], [17, 18, 19, 20, 21]]
-a = [[]]
-p(a, 2)
-print()
-s.rotate(a)
-p(a, 2)
+    # a = [[1, 2, 3, 4, 5], [5, 6, 7, 8, 9], [9, 10, 11, 12, 13],
+    #      [13, 14, 15, 16, 17], [17, 18, 19, 20, 21]]
+    a = [[]]
+    p(a, 2)
+    print()
+    s.rotate(a)
+    p(a, 2)

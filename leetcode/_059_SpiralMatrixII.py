@@ -20,6 +20,7 @@ class Solution(object):
         print(result)
 
 
-s = Solution()
-s.generateMatrix(4)
-s.generateMatrix(5)
+if __name__ == '__main__':
+    s = Solution()
+    s.generateMatrix(4)
+    s.generateMatrix(5)

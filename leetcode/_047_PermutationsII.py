@@ -27,7 +27,8 @@ class Solution(object):
         return result
 
 
-s = Solution()
-a = s.permuteUnique([1, 1, 2, 2, 3, 3])
-print(a)
-print(len(a))
+if __name__ == '__main__':
+    s = Solution()
+    a = s.permuteUnique([1, 1, 2, 2, 3, 3])
+    print(a)
+    print(len(a))

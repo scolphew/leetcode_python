@@ -20,7 +20,8 @@ class Solution(object):
             p.right, q.right)
 
 
-p = TreeNode(0)
-q = TreeNode(0)
-s = Solution()
-print(s.isSameTree(p, q))
+if __name__ == '__main__':
+    p = TreeNode(0)
+    q = TreeNode(0)
+    s = Solution()
+    print(s.isSameTree(p, q))

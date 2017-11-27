@@ -42,12 +42,13 @@ class Solution(object):
         return True
 
 
-s = Solution()
-print(s.isNumber2("3"), True)
-print(s.isNumber2("e"), False)
-print(s.isNumber2("+e123"), False)
-print(s.isNumber2("1e123"), True)
-print(s.isNumber2("1.2"), True)
-print(s.isNumber2(".2"), True)
-print(s.isNumber2("++.2"), False)
-print(s.isNumber2("."), False)
+if __name__ == '__main__':
+    s = Solution()
+    print(s.isNumber2("3"), True)
+    print(s.isNumber2("e"), False)
+    print(s.isNumber2("+e123"), False)
+    print(s.isNumber2("1e123"), True)
+    print(s.isNumber2("1.2"), True)
+    print(s.isNumber2(".2"), True)
+    print(s.isNumber2("++.2"), False)
+    print(s.isNumber2("."), False)

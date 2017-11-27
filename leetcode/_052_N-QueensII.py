@@ -58,10 +58,9 @@ class Solution(object):
                     xyDif.remove(row - col)
             return result
 
-        matrix = []
-        res = []
         return dfs(0, [], set(), set(), set(), n)
 
 
-s = Solution()
-print(s.totalNQueens(4))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.totalNQueens(4))

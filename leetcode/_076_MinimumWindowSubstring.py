@@ -23,8 +23,9 @@ class Solution(object):
         return s[l:r]
 
 
-s = Solution()
-print(s.minWindow(
-    "cabwefgewcwaefgcf",
-    "cae"
-))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.minWindow(
+        "cabwefgewcwaefgcf",
+        "cae"
+    ))

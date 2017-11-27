@@ -15,5 +15,6 @@ class Solution(object):
         return result[n]
 
 
-s = Solution()
-s.numTrees(6)
+if __name__ == '__main__':
+    s = Solution()
+    s.numTrees(6)

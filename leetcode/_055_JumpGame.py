@@ -29,6 +29,8 @@ class Solution(object):
         return True
 
 
-s = Solution()
-print(s.canJump2([3, 5, 0, 0, 0]))
-print(s.canJump2([0, 1]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.canJump2([3, 5, 0, 0, 0]))
+    print(s.canJump2([0, 1]))
+

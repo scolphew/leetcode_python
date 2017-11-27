@@ -24,8 +24,9 @@ class Codec:
         return self.s2l[i]
 
 
-codec = Codec()
-s = "https://leetcode.com/problems/design-tinyurl"
-print(codec.encode(s))
-print(codec.decode(codec.encode(s)))
-print(codec.decode(codec.encode(s)))
+if __name__ == '__main__':
+    codec = Codec()
+    s = "https://leetcode.com/problems/design-tinyurl"
+    print(codec.encode(s))
+    print(codec.decode(codec.encode(s)))
+    print(codec.decode(codec.encode(s)))

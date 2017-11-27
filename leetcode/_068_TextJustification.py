@@ -44,9 +44,11 @@ class Solution(object):
         return result
 
 
-s = Solution()
-a = ["My", "momma", "always", "said,", "\"Life", "was", "like", "a", "box",
-     "of", "chocolates.", "You", "never", "know", "what", "you're", "gonna",
-     "get."]
-for i in s.fullJustify(a, 20):
-    print(i)
+if __name__ == '__main__':
+    s = Solution()
+    a = ["My", "momma", "always", "said,", "\"Life", "was", "like", "a", "box",
+         "of", "chocolates.", "You", "never", "know", "what", "you're",
+         "gonna",
+         "get."]
+    for i in s.fullJustify(a, 20):
+        print(i)

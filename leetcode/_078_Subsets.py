@@ -13,5 +13,6 @@ class Solution(object):
         return result
 
 
-s = Solution()
-print(s.subsets([1, 2]))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.subsets([1, 2]))

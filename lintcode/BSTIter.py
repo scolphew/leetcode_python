@@ -20,6 +20,7 @@ class BSTIterator:
         self.curt = self.curt.right
         return nxt
 
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
@@ -27,6 +28,7 @@ class TreeNode:
 
     def __str__(self):
         return str(self.val)
+
 
 if __name__ == "__main__":
     r = TreeNode(1)

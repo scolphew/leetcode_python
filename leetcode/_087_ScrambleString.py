@@ -62,13 +62,16 @@ class Solution(object):
             if i != 0:
                 return False
         for i in range(1, len_1):
-            if self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:], s2[i:]):
+            if self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:],
+                                                                   s2[i:]):
                 return True
             j = len_1 - i
-            if self.isScramble(s1[:i], s2[j:]) and self.isScramble(s1[i:], s2[:j]):
+            if self.isScramble(s1[:i], s2[j:]) and self.isScramble(s1[i:],
+                                                                   s2[:j]):
                 return True
         return False
 
 
-s = Solution()
-print(s.isScramble("eatrg", "great"))
+if __name__ == '__main__':
+    s = Solution()
+    print(s.isScramble("eatrg", "great"))
