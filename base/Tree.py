@@ -1,5 +1,7 @@
 import math
-from operator import add, mul
+from operator import add
+
+__all__ = ['TreeNode', 'RBNode', 'RedBlackTree']
 
 
 class TreeNode(object):

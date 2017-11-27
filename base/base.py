@@ -1,6 +1,8 @@
 import time
 from functools import wraps
 
+__all__ = ["run_time"]
+
 
 def run_time(func):
     @wraps(func)

@@ -12,5 +12,6 @@ class Interval(object):
 def get_intervals(pairs):
     b = []
     for x in pairs:
+        assert len(x) == 2
         b.append(Interval(x[0], x[1]))
     return b
