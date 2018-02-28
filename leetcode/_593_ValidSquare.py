@@ -26,6 +26,15 @@ class Solution(object):
                AD[0] * BC[0] + AD[1] * BC[1] == 0 and \
                AB[0] ** 2 + AB[1] ** 2 == AC[0] ** 2 + AC[1] ** 2
 
+    def valid_square(self, p1, p2, p3, p4):
+        p = [p1, p2, p3, p4]
+        dist = {}
+        for i in range(1, 4):
+            for j in range(i):
+                tmp = (p[i][0] - p[j][0]) ** 2 + (p[i][1] - p[j][1]) ** 2
+                dist[tmp] = dist.get(tmp, 0) + 1
+        return len(dist) == 2 and 2 in dist.values() and 4 in dist.values()
+
 
 if __name__ == '__main__':
     s = Solution()
