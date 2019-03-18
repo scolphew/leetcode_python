@@ -13,12 +13,13 @@ class Solution(object):
 
         if candidates:
             # 如果有一个结点有两个双亲
-            # 如果第一条边在环内，返回该边。否则返回另一条
+            # 如果第一条边在环内（即根不在环上,或者说，成为了某一非根祖先父节点），返回该边。
+            # 否则（即菱形关系）返回另一条
             u, v = candidates[0]
             while u != v and u in parent_of:
                 u = parent_of[u]
             # u==v 则有环（根不在环上） 返回前一个
-            # u!=v 无环 返回后一个
+            # u!=v 无环 返回后一个,
             return candidates[u != v]
         else:
             # 有环，根在环上
