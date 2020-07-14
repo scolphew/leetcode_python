@@ -42,7 +42,30 @@ class Solution:
                         return step
         return -1
 
+    def openLock2(self, deadends: List[str], target: str) -> int:
+        def dist(code):
+            return sum(min(int(c), 10 - int(c)) for c in code)
+
+        def neighbors(code):
+            for i in range(4):
+                x = int(code[i])
+                yield code[:i] + str((x - 1) % 10) + code[i + 1:]
+                yield code[:i] + str((x + 1) % 10) + code[i + 1:]
+
+        deadends = set(deadends)
+        if '0000' in deadends or target in deadends:
+            return -1
+        # 最后一步
+        last_moves = set(neighbors(target)) - deadends
+        if not last_moves:
+            return -1
+        ans = dist(target)
+        for code in last_moves:
+            if dist(code) < ans:
+                return ans
+        return ans + 2
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.openLock(["0201", "0101", "0102", "1212", "2002"], "0202"))
+    print(s.openLock2(["0201", "0101", "0102", "1212", "2002"], "0202"))
