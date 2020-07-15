@@ -43,12 +43,35 @@ class Solution:
 
         return dfs(bottom)
 
+    def s2(self, bottom, allowed):
+        from collections import defaultdict
+        T = defaultdict(set)
+        for u, v, w in allowed:
+            T[u, v].add(w)
+
+        def solve(A):
+            if len(A) == 1:
+                return True
+            return any(solve(cand) for cand in build(A, []))
+
+        def build(A, ans, i=0):
+            if i + 1 == len(A):
+                yield "".join(ans)
+            else:
+                for w in T[A[i], A[i + 1]]:
+                    ans.append(w)
+                    for result in build(A, ans, i + 1):
+                        yield result
+                    ans.pop()
+
+        return solve(bottom)
+
 
 if __name__ == '__main__':
     s = Solution()
-    print(s.pyramidTransition("CCC",
-                              ["CBB", "ACB", "ABD", "CDB", "BDC", "CBC", "DBA",
-                               "DBB", "CAB", "BCB", "BCC", "BAA", "CCD", "BDD",
-                               "DDD", "CCA", "CAA", "CCC", "CCB"]))
+    print(s.s2("CCC",
+               ["CBB", "ACB", "ABD", "CDB", "BDC", "CBC", "DBA",
+                "DBB", "CAB", "BCB", "BCC", "BAA", "CCD", "BDD",
+                "DDD", "CCA", "CAA", "CCC", "CCB"]))
     print(s.pyramidTransition("AABA", ["AAA", "AAB", "ABA", "ABB", "BAC"]))
     print(s.pyramidTransition("BCD", ["BCG", "CDE", "GEA", "FFF"]))
