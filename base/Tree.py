@@ -1,34 +1,38 @@
 import math
 from operator import add
+from typing import Optional, TypeVar
+from collections.abc import Iterable
 
 __all__ = ['TreeNode', 'RBNode', 'RedBlackTree']
+
+T = TypeVar('T')
 
 
 class TreeNode(object):
     """二叉树"""
 
-    def __new__(cls, x=None, *args, **kwargs):
+    def __new__(cls, x: Optional[T | Iterable] = None, *args, **kwargs):
         if x is None:
             return None
         if hasattr(x, "__iter__") and len(x) == 0:
             return None
         return super().__new__(cls, *args, **kwargs)
 
-    def __init__(self, x=None):
-        self.left = None
-        self.right = None
+    def __init__(self, x: T | Iterable = None):
+        self.left: Optional[TreeNode] = None
+        self.right: Optional[TreeNode] = None
         if hasattr(x, "__iter__"):
-            self.__init_with_iter(x)
+            self.__init_with_iter(list(x))
         else:
             self.val = x
 
-    def __init_with_iter(self, x):
+    def __init_with_iter(self, x: list):
         """当输入的数据为列表时的操作"""
         from collections import deque
         self.val = x[0]
         node_stream = deque((self,))
-        index, lengrh = 1, len(x)
-        while index + 1 < lengrh:
+        index, length = 1, len(x)
+        while index + 1 < length:
             node = node_stream.popleft()
             while not node:
                 node = node_stream.popleft()
@@ -40,7 +44,7 @@ class TreeNode(object):
                 node_stream.append(node.right)
             index += 2
         else:
-            if index < lengrh:
+            if index < length:
                 node = node_stream.popleft()
                 node.left = TreeNode(x[index])
 
@@ -489,7 +493,7 @@ class SegmentTree(object):
 
         if x:
             yield from self.graph(x.r_child, prefix + 8)
-            yield f"{' '*prefix}{x}"
+            yield f"{' ' * prefix}{x}"
             yield from self.graph(x.l_child, prefix + 8)
 
     def query(self, start, end, root=False):
@@ -539,7 +543,6 @@ if __name__ == '__main__':
     # print(rb_tree)
     # print(rb_tree.force_search(2))
     # print(rb_tree)
-
 
     # root = TreeNode([1, 2, 4, None, 3, None, 5, None, 6])
     # root.left = TreeNode(2)

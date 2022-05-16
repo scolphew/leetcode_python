@@ -1,8 +1,5 @@
-#!/usr/bin/env python
-# -*- encoding: utf-8 -*-
-
 import sys
-from collections import Iterable
+from collections.abc import Iterable
 
 
 class ProgressBar(Iterable):
@@ -60,5 +57,6 @@ if __name__ == '__main__':
     for i in ProgressBar(range(10000)):
         s += 1
         import time
+
         time.sleep(0.01)
     print(s)
