@@ -5,10 +5,10 @@
 from .LinkedList import ListNode
 from .interval import Interval, get_intervals
 
-from .Tree import TreeNode
-from .Tree import RedBlackTree
-from .Tree import SegmentTreeNode
-from .Tree import SegmentTree
+from .tree import TreeNode
+from .tree import RedBlackTree
+from .tree import SegmentTreeNode
+from .tree import SegmentTree
 
 from .search import search
 from .search import lower_bound, upper_bound
