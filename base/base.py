@@ -14,13 +14,3 @@ def run_time(func):
         return res
 
     return wrapper
-
-
-@run_time
-def a():
-    time.sleep(3)
-    return 12121
-
-
-if __name__ == '__main__':
-    print(a())
