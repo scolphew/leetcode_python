@@ -1,4 +1,5 @@
 import sys
+import time
 from collections.abc import Iterable
 
 
@@ -6,18 +7,13 @@ class ProgressBar(Iterable):
     def __init__(self, data, n=None, desc=None, length=20):
         """
         简易进度条
-        :param iter: 迭代器
+        :param data: 迭代器
         :param n: 总数
         :param desc: 描述
         """
         self.iter = data
-        if n is None:
-            try:
-                self.n = len(data)
-            except TypeError:
-                self.n = None
-        else:
-            self.n = n
+        self.n = n if n is not None else (
+            len(data) if hasattr(data, "__len__") else None)
         self.desc = desc if desc else '进度'
         self.length = length
 
@@ -56,7 +52,5 @@ if __name__ == '__main__':
     s = 0
     for i in ProgressBar(range(10000)):
         s += 1
-        import time
-
         time.sleep(0.01)
     print(s)
